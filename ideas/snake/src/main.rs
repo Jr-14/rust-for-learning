@@ -1,7 +1,7 @@
-use ggez::glam::{vec2, Vec2};
-use ggez::{Context, ContextBuilder, GameResult};
-use ggez::graphics::{self, Color};
 use ggez::event::{self, EventHandler};
+use ggez::glam::{Vec2, vec2};
+use ggez::graphics::{self, Color};
+use ggez::{Context, ContextBuilder, GameResult};
 
 struct GameState {
     pos_x: f32,
@@ -29,7 +29,8 @@ impl EventHandler<ggez::GameError> for GameState {
     }
 
     fn draw(&mut self, ctx: &mut Context) -> GameResult {
-        let mut canvas = graphics::Canvas::from_frame(ctx, graphics::Color::from([0.1, 0.2, 0.3, 1.0]));
+        let mut canvas =
+            graphics::Canvas::from_frame(ctx, graphics::Color::from([0.1, 0.2, 0.3, 1.0]));
 
         canvas.draw(&self.circle, Vec2::new(self.pos_x, 380.0));
 
@@ -48,4 +49,3 @@ fn main() -> GameResult {
     let state = GameState::new(&mut ctx)?;
     event::run(ctx, event_loop, state)
 }
-
